@@ -19,11 +19,11 @@ module.exports = {
 				// Accepts all options defined by `babel-plugin-emotion` plugin.
 				autoLabel: true
 			}
-		},
-		{
-			resolve: 'gatsby-plugin-manifest',
-			options: config.manifest
-		},
-		'gatsby-plugin-offline'
+		}
+		// {
+		// 	resolve: 'gatsby-plugin-manifest',
+		// 	options: config.manifest
+		// },
+		// 'gatsby-plugin-offline'
 	]
 }

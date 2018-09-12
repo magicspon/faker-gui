@@ -20,7 +20,7 @@ export default class HTML extends React.Component {
 					<script dangerouslySetInnerHTML={{ __html: removeNoJsClass }} />
 					{this.props.headComponents}
 				</head>
-				<body {...this.props.bodyAttributes}>
+				<body className="font-regular" {...this.props.bodyAttributes}>
 					{this.props.preBodyComponents}
 					<div
 						key="body"

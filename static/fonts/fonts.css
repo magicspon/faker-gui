@@ -1,0 +1,17 @@
+@font-face {
+	font-family: 'GT-Walsheim-Light';
+	src: url('/fonts/GT-Walsheim-Light.eot');
+	src: url('/fonts/GT-Walsheim-Light.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/GT-Walsheim-Light.woff') format('woff'),
+		url('/fonts/GT-Walsheim-Light.ttf') format('truetype');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'GT-Walsheim-Medium';
+	src: url('/fonts/GT-Walsheim-Medium.eot');
+	src: url('/fonts/GT-Walsheim-Medium.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/GT-Walsheim-Medium.woff') format('woff'),
+		url('/fonts/GT-Walsheim-Medium.ttf') format('truetype');
+	font-display: swap;
+}

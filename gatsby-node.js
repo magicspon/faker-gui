@@ -100,38 +100,3 @@ exports.onCreateBabelConfig = ({ actions }) => {
 		}
 	})
 }
-
-exports.onPostBuild = async ({ graphql }) => {
-	const resp = await graphql(`
-		{
-			craft {
-				entries {
-					uri
-				}
-			}
-		}
-	`)
-
-	const {
-		data: {
-			craft: { entries }
-		}
-	} = resp
-
-	const saved = path.join('./public', '/sitemap.xml')
-
-	const map = sitemap.createSitemap({
-		hostname: config.hostname,
-		urls: R.compose(
-			R.map(uri => ({
-				url: `${config.hostname}/${uri}/`,
-				changefreq: 'daily',
-				priority: 0.7
-			})),
-			R.pluck('uri')
-		)(entries)
-	})
-	const writeFile = pify(fs.writeFile)
-
-	return writeFile(saved, map.toString())
-}

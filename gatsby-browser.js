@@ -3,25 +3,24 @@ import wrapWithProvider from '~/store/provider'
 export const wrapRootElement = wrapWithProvider
 
 export const onClientEntry = () => {
-	/*
-
-	Lazyload custom fonts
-
-	const style = {
-		style: 'normal',
-		unicodeRange: 'U+000-5FF',
-		weight: '400'
-	}
 	const light = new FontFace(
 		'GT-Walsheim-Light',
 		'url(/fonts/GT-Walsheim-Light.woff2)',
-		style
+		{
+			style: 'normal',
+			unicodeRange: 'U+000-5FF',
+			weight: '400'
+		}
 	)
 
 	const bold = new FontFace(
 		'GT-Walsheim-Medium',
 		'url(/fonts/GT-Walsheim-Medium.woff2)',
-		style
+		{
+			style: 'normal',
+			unicodeRange: 'U+000-5FF',
+			weight: '400'
+		}
 	)
 
 	// don't wait for the render tree, initiate an immediate fetch!
@@ -30,7 +29,6 @@ export const onClientEntry = () => {
 		// after the font has finished downloading
 		fonts.forEach(font => document.fonts.add(font))
 	})
-	*/
 }
 
 export const shouldUpdateScroll = () => true
