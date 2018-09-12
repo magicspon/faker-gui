@@ -10,11 +10,11 @@ export default class IndexPage extends Component {
 
 	renderItem = currentFieldType => {
 		if (currentFieldType === 'plainText') {
-			return <TextField onSubmit={this.onSubmit} />
+			return <TextField onSubmit={this.onSubmit} label="plainText" />
 		}
 
 		if (currentFieldType === 'richText') {
-			return <TextField onSubmit={this.onSubmit} />
+			return <TextField onSubmit={this.onSubmit} label="richText" />
 		}
 	}
 
@@ -32,6 +32,7 @@ export default class IndexPage extends Component {
 
 	render() {
 		const { items, currentFieldType } = this.state
+
 		return (
 			<Fragment>
 				<header className="p-2">
@@ -39,36 +40,43 @@ export default class IndexPage extends Component {
 				</header>
 				<div className="px-2 lg:grid">
 					<div className="lg:col-start-1 lg:col-end-13">
-						<h2 className="mb-1">Field type</h2>
-						<ul className="list-reset flex items-start">
-							<li className="mr-1 mb-1">
-								<button
-									type="button"
-									className="p-0-5 bg-orange hover:shadow-orange hover:text-orange hover:bg-white trans text-white"
-									onClick={() => {
-										this.setState({ currentFieldType: 'plainText' })
-									}}
-								>
-									plain text
-								</button>
-							</li>
-							<li className="mr-1 mb-1">
-								<button
-									type="button"
-									className="p-0-5 bg-orange text-white"
-									onClick={() => {
-										this.setState({ currentFieldType: 'richText' })
-									}}
-								>
-									body
-								</button>
-							</li>
-						</ul>
-						{currentFieldType && <div>{this.renderItem(currentFieldType)}</div>}
+						{currentFieldType ? (
+							<div>{this.renderItem(currentFieldType)}</div>
+						) : (
+							<Fragment>
+								<h2 className="mb-1">Field type</h2>
+								<ul className="list-reset flex items-start">
+									<li className="mr-1 mb-1">
+										<button
+											type="button"
+											className="p-0-5 bg-orange hover:shadow-orange hover:text-orange hover:bg-white trans text-white"
+											onClick={() => {
+												this.setState({ currentFieldType: 'plainText' })
+											}}
+										>
+											plain text
+										</button>
+									</li>
+									<li className="mr-1 mb-1">
+										<button
+											type="button"
+											className="p-0-5 bg-orange text-white"
+											onClick={() => {
+												this.setState({ currentFieldType: 'richText' })
+											}}
+										>
+											body
+										</button>
+									</li>
+								</ul>
+							</Fragment>
+						)}
 					</div>
 					<div className="lg:col-start-13 lg:col-end-25">
 						<h2 className="mb-1">JSON</h2>
-						<pre>{JSON.stringify(items, null, 2)}</pre>
+						<pre className="whitespace-pre-wrap">
+							{JSON.stringify(items, null, 2)}
+						</pre>
 					</div>
 				</div>
 			</Fragment>

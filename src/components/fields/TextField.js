@@ -23,7 +23,7 @@ export default class TextField extends Component {
 	}
 
 	render() {
-		const { name, count } = this.state
+		const { name, count, label = 'plaintext' } = this.state
 		const { onSubmit } = this.props
 
 		return (
@@ -34,12 +34,14 @@ export default class TextField extends Component {
 					onSubmit(this.state)
 				}}
 			>
-				<h3 className="mb-1 font-bold">plaintext</h3>
+				<h2 className="mb-1 font-bold">{label}</h2>
 				<label htmlFor="plaintext" className="flex items-center mb-1">
 					<span className="block text-ms--1 mr-1">Name</span>
 					<input
+						required
 						type="text"
 						value={name}
+						placeholder="title"
 						onChange={this.onChange}
 						className="px-0-25 py-0-25 border-b-3 focus:border-teal outline-none block flex-1 trans"
 					/>
@@ -47,7 +49,7 @@ export default class TextField extends Component {
 				<label htmlFor="plaintext" className="flex items-center mb-2">
 					<span className="block text-ms--1 mr-1">word count</span>
 					<input
-						className="px-1 py-0-25 border block flex-1"
+						className="border block flex-1"
 						type="range"
 						min="1"
 						max="100"
