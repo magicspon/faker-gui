@@ -21,17 +21,6 @@ module.exports = {
 			}
 		},
 		{
-			resolve: 'gatsby-source-graphql',
-			options: {
-				fieldName: 'craft',
-				typeName: 'Craft',
-				url: 'https://yourdomain/api',
-				headers: {
-					Authorization: 'bearer XXXXX'
-				}
-			}
-		},
-		{
 			resolve: 'gatsby-plugin-manifest',
 			options: config.manifest
 		},
